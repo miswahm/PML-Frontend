@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-10"></div>
+  <div class="col-2">
+    <a [routerLink]="['../../create-product/product']">
+      <button type="button" class="btn btn-primary">
+        <nb-icon icon="plus-outline" pack="eva"></nb-icon> Create New
+      </button>
+    </a>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <div class="row">
+      <div class="col-4" *ngFor="let product of products">
+        <ngx-product-card [product]="product"></ngx-product-card>
+      </div>
+    </div>
+  </div>
+  <div class="col-2"></div>
+</div>
