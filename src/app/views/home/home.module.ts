@@ -14,6 +14,7 @@ const routes: Routes = [
     component: HomeComponent,
     children: [{ path: "", component: HomeLayoutComponent }],
   },
+  { path: "", redirectTo: "products", pathMatch: "full" },
 ];
 
 @NgModule({

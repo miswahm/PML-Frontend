@@ -24,6 +24,7 @@ const routes: Routes = [
       { path: "exclusion", component: ExclusionsComponent },
     ],
   },
+  { path: "", redirectTo: "product", pathMatch: "full" },
 ];
 
 @NgModule({
