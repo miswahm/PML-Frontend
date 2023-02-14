@@ -1,1 +1,95 @@
-<p>types-variants works!</p>
+<nb-card>
+  <nb-card-header class="text-center">Sum Insured</nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-4">
+        <nb-card>
+          <nb-card-header>Silver Plan</nb-card-header>
+          <nb-card-body>
+            <nb-list>
+              <nb-list-item>Base Sum - 2 Lakhs</nb-list-item>
+              <nb-list-item>Base Sum - 3 Lakhs</nb-list-item>
+            </nb-list>
+          </nb-card-body>
+        </nb-card>
+      </div>
+      <div class="col-4">
+        <nb-card>
+          <nb-card-header>Gold Plan</nb-card-header>
+          <nb-card-body>
+            <nb-list>
+              <nb-list-item>Base Sum - 5 Lakhs</nb-list-item>
+              <nb-list-item>Base Sum - 7.5 Lakhs</nb-list-item>
+              <nb-list-item>Base Sum - 10 Lakhs</nb-list-item>
+              <nb-list-item>Base Sum - 15 Lakhs</nb-list-item>
+            </nb-list>
+          </nb-card-body>
+        </nb-card>
+      </div>
+      <div class="col-4">
+        <nb-card>
+          <nb-card-header>Platinum Plan</nb-card-header>
+          <nb-card-body>
+            <nb-list>
+              <nb-list-item>Base Sum - 10 Lakhs</nb-list-item>
+              <nb-list-item>Base Sum - 15 Lakhs</nb-list-item>
+              <nb-list-item>Base Sum - 20 Lakhs</nb-list-item>
+              <nb-list-item>Base Sum - 50 Lakhs</nb-list-item>
+            </nb-list>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header class="text-center">Addons</nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-4">
+        <nb-card>
+          <nb-card-header>Personal</nb-card-header>
+          <nb-card-body>
+            <nb-list>
+              <nb-list-item>Personal Accident cover</nb-list-item>
+              <nb-list-item>OPD Cover</nb-list-item>
+              <nb-list-item>NCB Super</nb-list-item>
+              <nb-list-item>Hospitalization</nb-list-item>
+            </nb-list>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header class="text-center">Variant Type</nb-card-header>
+  <nb-card-body>
+    <nb-select
+      multiple
+      placeholder="Select Multiple Variant"
+      [(selected)]="selectedItem"
+    >
+      <nb-option value="1">Option 1</nb-option>
+      <nb-option value="2">Option 2</nb-option>
+      <nb-option value="3">Option 3</nb-option>
+      <nb-option value="4">Option 4</nb-option>
+    </nb-select>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header class="text-center">Room Type</nb-card-header>
+  <nb-card-body>
+    <nb-select placeholder="Select Showcase" [(selected)]="selectedItem">
+      <nb-option value="">Option empty</nb-option>
+      <nb-option value="0">Option 0</nb-option>
+      <nb-option value="1">Option 1</nb-option>
+      <nb-option value="2">Option 2</nb-option>
+      <nb-option value="3">Option 3</nb-option>
+      <nb-option value="4">Option 4</nb-option>
+    </nb-select>
+  </nb-card-body>
+</nb-card>
