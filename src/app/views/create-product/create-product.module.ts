@@ -6,6 +6,7 @@ import {
   NbButtonModule,
   NbCardModule,
   NbDatepickerModule,
+  NbIconModule,
   NbInputModule,
   NbListModule,
   NbMenuModule,
@@ -20,6 +21,8 @@ import { GeneralConditionsComponent } from "./general-conditions/general-conditi
 import { CoverageComponent } from "./coverage/coverage.component";
 import { ExclusionsComponent } from "./exclusions/exclusions.component";
 import { LayoutCreateProductComponent } from "./layout-create-product/layout-create-product.component";
+import { ReactiveFormsModule } from "@angular/forms";
+import { IcdCodeModalComponent } from './icd-code-modal/icd-code-modal.component';
 
 //routes
 const routes: Routes = [
@@ -48,6 +51,7 @@ const routes: Routes = [
     CoverageComponent,
     ExclusionsComponent,
     LayoutCreateProductComponent,
+    IcdCodeModalComponent,
   ],
   imports: [
     CommonModule,
@@ -62,6 +66,8 @@ const routes: Routes = [
     NbDatepickerModule,
     NbListModule,
     NbSelectModule,
+    ReactiveFormsModule,
+    NbIconModule
   ],
 })
 export class CreateProductModule {}

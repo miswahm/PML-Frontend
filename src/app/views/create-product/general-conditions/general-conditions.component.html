@@ -1,1 +1,76 @@
-<p>general-conditions works!</p>
+<nb-card>
+  <nb-card-header>General Conditions</nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="conditionsForm">
+      <div formArrayName="conditions">
+        <div *ngFor="let condition of conditions.controls; let i = index">
+          <div [formGroupName]="i">
+            <div class="row">
+              <div class="col-3">
+                <nb-select
+                  placeholder="Select Reason"
+                  [(selected)]="selectedItem"
+                  formControlName="reason"
+                >
+                  <nb-option value="">Option empty</nb-option>
+                  <nb-option value="0">Option 0</nb-option>
+                  <nb-option value="1">Option 1</nb-option>
+                  <nb-option value="2">Option 2</nb-option>
+                  <nb-option value="3">Option 3</nb-option>
+                  <nb-option value="4">Option 4</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-3">
+                <nb-select
+                  placeholder="Select Comparator"
+                  [(selected)]="selectedItem"
+                  formControlName="comparator"
+                >
+                  <nb-option value="">Option empty</nb-option>
+                  <nb-option value="0">Option 0</nb-option>
+                  <nb-option value="1">Option 1</nb-option>
+                  <nb-option value="2">Option 2</nb-option>
+                  <nb-option value="3">Option 3</nb-option>
+                  <nb-option value="4">Option 4</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-3">
+                <nb-select
+                  placeholder="Select Cause"
+                  [(selected)]="selectedItem"
+                  formControlName="cause"
+                >
+                  <nb-option value="">Option empty</nb-option>
+                  <nb-option value="0">Option 0</nb-option>
+                  <nb-option value="1">Option 1</nb-option>
+                  <nb-option value="2">Option 2</nb-option>
+                  <nb-option value="3">Option 3</nb-option>
+                  <nb-option value="4">Option 4</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-3">
+                <button
+                  (click)="removeCondition(i)"
+                  nbButton
+                  status="danger"
+                  *ngIf="i !== 0"
+                >
+                  Remove
+                </button>
+                <button
+                  type="button"
+                  (click)="addCondition()"
+                  nbButton
+                  status="primary"
+                  *ngIf="i + 1 == conditions.controls.length"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>
