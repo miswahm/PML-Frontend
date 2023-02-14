@@ -1,1 +1,164 @@
-<p>exclusions works!</p>
+<nb-card>
+  <nb-card-header>Details</nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-2 mt-3">
+        <span class="font-weight-bold">Name :</span> {{ name }}
+      </div>
+      <div class="col-2 mt-3">
+        <span class="font-weight-bold">Type :</span> {{ type }}
+      </div>
+      <div class="col-2 mt-3">
+        <span class="font-weight-bold">Code :</span> {{ icdCode }}
+      </div>
+      <div class="col-3">
+        <span class="font-weight-bold">Category :</span>
+        <nb-select placeholder="Select Category">
+          <nb-option value="">Option empty</nb-option>
+          <nb-option value="0">Option 0</nb-option>
+          <nb-option value="1">Option 1</nb-option>
+          <nb-option value="2">Option 2</nb-option>
+          <nb-option value="3">Option 3</nb-option>
+          <nb-option value="4">Option 4</nb-option>
+        </nb-select>
+      </div>
+      <div class="col-2 mt-3" style="color: red">
+        <nb-icon icon="close"></nb-icon> Not Covered
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header>Waiting Period</nb-card-header>
+  <nb-card-body class="text-left">
+    <form [formGroup]="waitingPeriodForm">
+      <div formArrayName="conditions">
+        <div *ngFor="let condition of waitingPeriod.controls; let i = index">
+          <div [formGroupName]="i">
+            <div class="row">
+              <div class="col-10">
+                {{ i + 1 }}.
+                <input type="text" nbInput class="ml-2" />
+                <nb-select placeholder="Select Time Period">
+                  <nb-option value="">Option empty</nb-option>
+                  <nb-option value="0">Option 0</nb-option>
+                  <nb-option value="1">Option 1</nb-option>
+                  <nb-option value="2">Option 2</nb-option>
+                  <nb-option value="3">Option 3</nb-option>
+                  <nb-option value="4">Option 4</nb-option>
+                </nb-select>
+
+                <span class="font-weight-bold ml-3">IF</span>
+
+                <nb-select placeholder="Select Time Period" class="ml-1">
+                  <nb-option value="">Option empty</nb-option>
+                  <nb-option value="0">Option 0</nb-option>
+                  <nb-option value="1">Option 1</nb-option>
+                  <nb-option value="2">Option 2</nb-option>
+                  <nb-option value="3">Option 3</nb-option>
+                  <nb-option value="4">Option 4</nb-option>
+                </nb-select>
+
+                <nb-select placeholder="Select Time Period" class="ml-2">
+                  <nb-option value="">Option empty</nb-option>
+                  <nb-option value="0">Option 0</nb-option>
+                  <nb-option value="1">Option 1</nb-option>
+                  <nb-option value="2">Option 2</nb-option>
+                  <nb-option value="3">Option 3</nb-option>
+                  <nb-option value="4">Option 4</nb-option>
+                </nb-select>
+
+                <input type="number" nbInput class="ml-3" />
+              </div>
+              <div class="col-2">
+                <button
+                  (click)="removeWaitingPeriod(i)"
+                  nbButton
+                  status="danger"
+                  *ngIf="i !== 0"
+                >
+                  Remove
+                </button>
+                <button
+                  type="button"
+                  (click)="addWaitingPeriod()"
+                  nbButton
+                  status="primary"
+                  *ngIf="i + 1 == waitingPeriod.controls.length"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header>Coverage Conditions</nb-card-header>
+  <nb-card-body class="text-left">
+    <form [formGroup]="coverageForm">
+      <div formArrayName="coverage">
+        <div *ngFor="let condition of coverage.controls; let i = index">
+          <div [formGroupName]="i">
+            <div class="row">
+              <div class="col-10">
+                {{ i + 1 }}.
+                <nb-select placeholder="Select Time Period">
+                  <nb-option value="">Option empty</nb-option>
+                  <nb-option value="0">Option 0</nb-option>
+                  <nb-option value="1">Option 1</nb-option>
+                  <nb-option value="2">Option 2</nb-option>
+                  <nb-option value="3">Option 3</nb-option>
+                  <nb-option value="4">Option 4</nb-option>
+                </nb-select>
+
+                <nb-select placeholder="Select Time Period" class="ml-1">
+                  <nb-option value="">Option empty</nb-option>
+                  <nb-option value="0">Option 0</nb-option>
+                  <nb-option value="1">Option 1</nb-option>
+                  <nb-option value="2">Option 2</nb-option>
+                  <nb-option value="3">Option 3</nb-option>
+                  <nb-option value="4">Option 4</nb-option>
+                </nb-select>
+
+                <nb-select placeholder="Select Time Period" class="ml-2">
+                  <nb-option value="">Option empty</nb-option>
+                  <nb-option value="0">Option 0</nb-option>
+                  <nb-option value="1">Option 1</nb-option>
+                  <nb-option value="2">Option 2</nb-option>
+                  <nb-option value="3">Option 3</nb-option>
+                  <nb-option value="4">Option 4</nb-option>
+                </nb-select>
+              </div>
+              <div class="col-2">
+                <button
+                  (click)="removeCoverage(i)"
+                  nbButton
+                  status="danger"
+                  *ngIf="i !== 0"
+                >
+                  Remove
+                </button>
+                <button
+                  type="button"
+                  (click)="addCoverage()"
+                  nbButton
+                  status="primary"
+                  *ngIf="i + 1 == coverage.controls.length"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

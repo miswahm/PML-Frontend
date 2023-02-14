@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { NbStepChangeEvent, NbStepperComponent } from "@nebular/theme";
 
 @Component({
-  selector: 'ngx-layout-create-product',
-  templateUrl: './layout-create-product.component.html',
-  styleUrls: ['./layout-create-product.component.scss']
+  selector: "ngx-layout-create-product",
+  templateUrl: "./layout-create-product.component.html",
+  styleUrls: ["./layout-create-product.component.scss"],
 })
 export class LayoutCreateProductComponent implements OnInit {
+  changeEvent: NbStepChangeEvent;
+  selectedIndex = 0;
 
-  constructor() { }
+  @ViewChild("stepper") stepper: NbStepperComponent;
 
-  ngOnInit(): void {
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  handleStepChange(e: NbStepChangeEvent): void {
+    this.changeEvent = e;
+    this.selectedIndex = e.index;
   }
-
 }

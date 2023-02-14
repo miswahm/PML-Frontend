@@ -9,10 +9,13 @@
 <div class="col-md-12 col-lg-12 col-xxxl-12">
   <nb-card>
     <nb-card-body>
-      <nb-stepper orientation="vertical" selectedIndex="3">
+      <nb-stepper
+        orientation="vertical"
+        disableStepNavigation="true"
+        (stepChange)="handleStepChange($event)"
+      >
         <nb-step label="Product Details">
           <ngx-product-details></ngx-product-details>
-
           <button nbButton disabled nbStepperNext>prev</button>
           <button nbButton nbStepperNext>next</button>
         </nb-step>
@@ -27,18 +30,14 @@
           <button nbButton nbStepperNext>next</button>
         </nb-step>
         <nb-step label="Coverage">
-          <ngx-coverage></ngx-coverage>
+          <span *ngIf="selectedIndex == 3">
+            <ngx-coverage></ngx-coverage>
+          </span>
           <button nbButton nbStepperPrevious>prev</button>
-          <button nbButton disabled nbStepperNext>next</button>
+          <button nbButton nbStepperNext>next</button>
         </nb-step>
         <nb-step label="Exclusion">
-          <h3>Step content #5</h3>
-          <p class="lorem">
-            Proin varius accumsan semper. Praesent consequat tincidunt sagittis.
-            Curabitur egestas sem a ipsum bibendum, sit amet fringilla orci
-            efficitur. Nam bibendum lectus ut viverra tristique. Fusce eu
-            pulvinar magna, quis viverra ex.
-          </p>
+          <ngx-exclusions></ngx-exclusions>
           <button nbButton nbStepperPrevious>prev</button>
           <button nbButton disabled nbStepperNext>next</button>
         </nb-step>
