@@ -2,7 +2,16 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { CreateProductComponent } from "./create-product.component";
 import { ThemeModule } from "../../@theme/theme.module";
-import { NbMenuModule } from "@nebular/theme";
+import {
+  NbButtonModule,
+  NbCardModule,
+  NbDatepickerModule,
+  NbInputModule,
+  NbListModule,
+  NbMenuModule,
+  NbSelectModule,
+  NbStepperModule,
+} from "@nebular/theme";
 import { MiscellaneousModule } from "../../pages/miscellaneous/miscellaneous.module";
 import { RouterModule, Routes } from "@angular/router";
 import { ProductDetailsComponent } from "./product-details/product-details.component";
@@ -10,6 +19,7 @@ import { TypesVariantsComponent } from "./types-variants/types-variants.componen
 import { GeneralConditionsComponent } from "./general-conditions/general-conditions.component";
 import { CoverageComponent } from "./coverage/coverage.component";
 import { ExclusionsComponent } from "./exclusions/exclusions.component";
+import { LayoutCreateProductComponent } from "./layout-create-product/layout-create-product.component";
 
 //routes
 const routes: Routes = [
@@ -22,8 +32,10 @@ const routes: Routes = [
       { path: "general-conditions", component: GeneralConditionsComponent },
       { path: "coverage", component: CoverageComponent },
       { path: "exclusion", component: ExclusionsComponent },
+      { path: "creation-wizard", component: LayoutCreateProductComponent },
     ],
   },
+
   { path: "", redirectTo: "product", pathMatch: "full" },
 ];
 
@@ -35,6 +47,7 @@ const routes: Routes = [
     GeneralConditionsComponent,
     CoverageComponent,
     ExclusionsComponent,
+    LayoutCreateProductComponent,
   ],
   imports: [
     CommonModule,
@@ -42,6 +55,13 @@ const routes: Routes = [
     NbMenuModule,
     MiscellaneousModule,
     RouterModule.forChild(routes),
+    NbStepperModule,
+    NbCardModule,
+    NbButtonModule,
+    NbInputModule,
+    NbDatepickerModule,
+    NbListModule,
+    NbSelectModule,
   ],
 })
 export class CreateProductModule {}
