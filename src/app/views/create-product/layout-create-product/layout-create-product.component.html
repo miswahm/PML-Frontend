@@ -1,0 +1,69 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  </ol>
+</nav>
+
+<div class="col-md-12 col-lg-12 col-xxxl-12">
+  <nb-card>
+    <nb-card-body>
+      <nb-stepper orientation="vertical">
+        <nb-step label="Product Details">
+          <ngx-product-details></ngx-product-details>
+
+          <button nbButton disabled nbStepperNext>prev</button>
+          <button nbButton nbStepperNext>next</button>
+        </nb-step>
+        <nb-step label="Types & Variants">
+          <ngx-types-variants></ngx-types-variants>
+          <button nbButton nbStepperPrevious>prev</button>
+          <button nbButton nbStepperNext>next</button>
+        </nb-step>
+        <nb-step label="General Conditions">
+          <h3>Step content #3</h3>
+          <p class="lorem">
+            Proin varius accumsan semper. Praesent consequat tincidunt sagittis.
+            Curabitur egestas sem a ipsum bibendum, sit amet fringilla orci
+            efficitur. Nam bibendum lectus ut viverra tristique. Fusce eu
+            pulvinar magna, quis viverra ex. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Praesent metus turpis, commodo vel
+            placerat quis, lobortis in ligula.
+          </p>
+          <p class="lorem">
+            Curabitur luctus mattis risus nec condimentum. Donec at dui turpis.
+            Sed vehicula fringilla rutrum. Nullam sed ornare magna. Mauris vitae
+            laoreet diam. Mauris fermentum ligula at lacinia semper. Nulla
+            placerat dui eu sapien pellentesque, eu placerat leo luctus. Cras
+            pharetra blandit fermentum.
+          </p>
+          <button nbButton nbStepperPrevious>prev</button>
+          <button nbButton nbStepperNext>next</button>
+        </nb-step>
+        <nb-step label="Coverage">
+          <h3>Step content #4</h3>
+          <p class="lorem">
+            Proin varius accumsan semper. Praesent consequat tincidunt sagittis.
+            Curabitur egestas sem a ipsum bibendum, sit amet fringilla orci
+            efficitur. Nam bibendum lectus ut viverra tristique. Fusce eu
+            pulvinar magna, quis viverra ex.
+          </p>
+          <button nbButton nbStepperPrevious>prev</button>
+          <button nbButton disabled nbStepperNext>next</button>
+        </nb-step>
+        <nb-step label="Exclusion">
+          <h3>Step content #5</h3>
+          <p class="lorem">
+            Proin varius accumsan semper. Praesent consequat tincidunt sagittis.
+            Curabitur egestas sem a ipsum bibendum, sit amet fringilla orci
+            efficitur. Nam bibendum lectus ut viverra tristique. Fusce eu
+            pulvinar magna, quis viverra ex.
+          </p>
+          <button nbButton nbStepperPrevious>prev</button>
+          <button nbButton disabled nbStepperNext>next</button>
+        </nb-step>
+      </nb-stepper>
+    </nb-card-body>
+  </nb-card>
+</div>

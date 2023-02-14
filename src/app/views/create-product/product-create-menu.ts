@@ -1,4 +1,5 @@
 import { NbMenuItem } from "@nebular/theme";
+import { link } from "fs";
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
@@ -20,5 +21,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: "Exclusion",
     link: "/create-product/product/exclusion",
+  },
+  {
+    title: "Creation Wizard",
+    link: "/create-product/product/creation-wizard",
   },
 ];

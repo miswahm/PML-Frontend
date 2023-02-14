@@ -1,0 +1,8 @@
+:host ::ng-deep nb-stepper .step-content {
+  text-align: center;
+  min-width: 90%;
+  button {
+    cursor: pointer;
+    margin: 0.5rem;
+  }
+}
