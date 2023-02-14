@@ -1,1 +1,29 @@
-<p>product-details works!</p>
+<nb-card>
+  <nb-card-header class="text-center">Product Details</nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-4">
+        <label for="name">Product Name : &nbsp;&nbsp;</label>
+        <input nbInput placeholder="Product Name" id="name" />
+      </div>
+
+      <div class="col-4">
+        <label for="code">Product Code : &nbsp;&nbsp;</label>
+        <input nbInput placeholder="Product Code" id="code" />
+      </div>
+
+      <div class="col-4">
+        <label for="uin">UIN Number : &nbsp;&nbsp;</label>
+        <input nbInput placeholder="UIN Number" id="uin" />
+      </div>
+    </div>
+
+    <!-- <div class="row mt-3">
+      <div class="col-4">
+        <label for="uin">UIN Number : &nbsp;&nbsp;</label>
+        <input nbInput placeholder="Pick Date" [nbDatepicker]="picker" id=""/>
+        <nb-datepicker #picker [min]="min" [max]="max"></nb-datepicker>
+      </div>
+    </div> -->
+  </nb-card-body>
+</nb-card>
