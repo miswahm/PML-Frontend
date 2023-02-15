@@ -2,40 +2,85 @@
   <nb-card-header class="text-center">Sum Insured</nb-card-header>
   <nb-card-body>
     <div class="row">
-      <div class="col-4">
+      <div class="col-5">
         <nb-card>
-          <nb-card-header>Silver Plan</nb-card-header>
+          <nb-card-header>Please Add Variant Names</nb-card-header>
           <nb-card-body>
-            <nb-list>
-              <nb-list-item>Base Sum - 2 Lakhs</nb-list-item>
-              <nb-list-item>Base Sum - 3 Lakhs</nb-list-item>
-            </nb-list>
+            <form [formGroup]="variantName">
+              <div formArrayName="variants">
+                <div *ngFor="let variant of variants.controls; let i = index">
+                  <div [formGroupName]="i">
+                    <input type="text" nbInput formControlName="name" />
+                    <button
+                      (click)="removeVariant(i)"
+                      nbButton
+                      status="danger"
+                      *ngIf="variants.controls.length > 1"
+                    >
+                      Remove
+                    </button>
+                    <button
+                      type="button"
+                      (click)="addVariantName()"
+                      nbButton
+                      status="primary"
+                      *ngIf="i + 1 == variants.controls.length"
+                    >
+                      Add
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
           </nb-card-body>
         </nb-card>
       </div>
-      <div class="col-4">
+
+      <div class="col-7">
         <nb-card>
-          <nb-card-header>Gold Plan</nb-card-header>
+          <nb-card-header>Please add Variants</nb-card-header>
           <nb-card-body>
-            <nb-list>
-              <nb-list-item>Base Sum - 5 Lakhs</nb-list-item>
-              <nb-list-item>Base Sum - 7.5 Lakhs</nb-list-item>
-              <nb-list-item>Base Sum - 10 Lakhs</nb-list-item>
-              <nb-list-item>Base Sum - 15 Lakhs</nb-list-item>
-            </nb-list>
-          </nb-card-body>
-        </nb-card>
-      </div>
-      <div class="col-4">
-        <nb-card>
-          <nb-card-header>Platinum Plan</nb-card-header>
-          <nb-card-body>
-            <nb-list>
-              <nb-list-item>Base Sum - 10 Lakhs</nb-list-item>
-              <nb-list-item>Base Sum - 15 Lakhs</nb-list-item>
-              <nb-list-item>Base Sum - 20 Lakhs</nb-list-item>
-              <nb-list-item>Base Sum - 50 Lakhs</nb-list-item>
-            </nb-list>
+            <form [formGroup]="baseSum">
+              <div formArrayName="sum">
+                <div *ngFor="let baseSum of sum.controls; let i = index">
+                  <div [formGroupName]="i">
+                    <input type="text" nbInput formControlName="title" />
+
+                    <nb-select
+                      placeholder="Select Reason"
+                      formControlName="variantId"
+                      class="mw-50"
+                    >
+                      <nb-option
+                        *ngFor="let name of variantName.value.variants"
+                        [value]="name.id"
+                        >{{ name.name }}</nb-option
+                      >
+                    </nb-select>
+
+                    <button
+                      (click)="removeSum(i)"
+                      nbButton
+                      status="danger"
+                      *ngIf="sum.controls.length > 1"
+                      class="ml-3"
+                    >
+                      Remove
+                    </button>
+                    <button
+                      type="button"
+                      (click)="addBaseSum()"
+                      nbButton
+                      status="primary"
+                      *ngIf="i + 1 == sum.controls.length"
+                      class="ml-3"
+                    >
+                      Add
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
           </nb-card-body>
         </nb-card>
       </div>
@@ -67,7 +112,7 @@
 <nb-card>
   <nb-card-header class="text-center">Variant Type</nb-card-header>
   <nb-card-body>
-    <nb-select multiple placeholder="Select Multiple Variant">
+    <nb-select multiple placeholder="Select Multiple Variant" class="mw-80">
       <nb-option value="1">Option 1</nb-option>
       <nb-option value="2">Option 2</nb-option>
       <nb-option value="3">Option 3</nb-option>
@@ -84,6 +129,7 @@
       placeholder="Select Showcase"
       [(selected)]="selectedItem"
       [compareWith]="compareById"
+      class="mw-80"
     >
       <nb-option value="">Option empty</nb-option>
       <nb-option value="0">Option 0</nb-option>
