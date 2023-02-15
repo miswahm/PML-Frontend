@@ -33,6 +33,26 @@
 <nb-card>
   <nb-card-header>Limits</nb-card-header>
   <nb-card-body>
+    {{ planTypeCheck }} {{ planVariantCheck }} {{ sumInsuredCheck }}
+    {{ applicabilityCheck }} {{ roomTypeCheck }}
+    <div class="row text-center mb-3 mt-2">
+      <nb-checkbox (checkedChange)="togglePlanType($event)"
+        >Plan Type</nb-checkbox
+      >
+      <nb-checkbox (checkedChange)="togglePlanVariant($event)"
+        >Plan Variant</nb-checkbox
+      >
+      <nb-checkbox (checkedChange)="toggleSumInsured($event)"
+        >Sum Insured</nb-checkbox
+      >
+      <nb-checkbox (checkedChange)="toggleApplicability($event)"
+        >Applicability</nb-checkbox
+      >
+      <nb-checkbox (checkedChange)="toggleRoomType($event)"
+        >Room Type</nb-checkbox
+      >
+    </div>
+
     <table>
       <colgroup>
         <col span="3" />
@@ -41,7 +61,7 @@
         <col span="2" />
       </colgroup>
       <thead>
-        <tr>
+        <tr *ngIf="planVariantCheck">
           <td></td>
           <td></td>
           <td></td>
@@ -53,27 +73,27 @@
         <tr>
           <td></td>
           <td></td>
-          <th colspan="1">Sum Insured</th>
-          <th colspan="1">Per Person</th>
-          <th colspan="1">Per Policy Period</th>
-          <th colspan="1">Per Person</th>
-          <th colspan="1">Per Policy Period</th>
-          <th colspan="1">Per Person</th>
-          <th colspan="1">Per Policy Period</th>
+          <th colspan="1" *ngIf="sumInsuredCheck">Sum Insured</th>
+          <th colspan="1" *ngIf="applicabilityCheck">Per Person</th>
+          <th colspan="1" *ngIf="applicabilityCheck">Per Policy Period</th>
+          <th colspan="1" *ngIf="applicabilityCheck">Per Person</th>
+          <th colspan="1" *ngIf="applicabilityCheck">Per Policy Period</th>
+          <th colspan="1" *ngIf="applicabilityCheck">Per Person</th>
+          <th colspan="1" *ngIf="applicabilityCheck">Per Policy Period</th>
         </tr>
       </thead>
 
       <tbody>
         <tr>
-          <th rowspan="3">Individual</th>
-          <th rowspan="6">Delux Romm</th>
-          <td>2 Lakhs</td>
-          <td>Data 2.2</td>
-          <td>Data 2.3</td>
-          <td>Data 2.4</td>
-          <td>Data 2.4</td>
-          <td>Data 2.4</td>
-          <td>Data 2.4</td>
+          <th rowspan="3" *ngIf="planTypeCheck">Individual</th>
+          <th rowspan="6" *ngIf="roomTypeCheck">Delux Romm</th>
+          <td><input type="text" class="table-input" /></td>
+          <td><input type="text" class="table-input" /></td>
+          <td><input type="text" class="table-input" /></td>
+          <td><input type="text" class="table-input" /></td>
+          <td><input type="text" class="table-input" /></td>
+          <td><input type="text" class="table-input" /></td>
+          <td><input type="text" class="table-input" /></td>
         </tr>
 
         <tr>
@@ -97,7 +117,7 @@
         </tr>
 
         <tr>
-          <th rowspan="3">Floater</th>
+          <th rowspan="3" *ngIf="planTypeCheck">Floater</th>
           <td>2 Lakhs</td>
           <td>Data 2.2</td>
           <td>Data 2.3</td>
