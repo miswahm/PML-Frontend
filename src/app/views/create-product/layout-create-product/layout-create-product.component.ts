@@ -8,7 +8,7 @@ import { NbStepChangeEvent, NbStepperComponent } from "@nebular/theme";
 })
 export class LayoutCreateProductComponent implements OnInit {
   changeEvent: NbStepChangeEvent;
-  selectedIndex = 0;
+  selectedIndex = 3;
 
   @ViewChild("stepper") stepper: NbStepperComponent;
 

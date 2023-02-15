@@ -18,6 +18,12 @@ export class CoverageComponent implements OnInit {
   waitingPeriodForm: FormGroup;
   coverageForm: FormGroup;
 
+  planTypeCheck: boolean = false;
+  planVariantCheck: boolean = false;
+  sumInsuredCheck: boolean = false;
+  applicabilityCheck: boolean = false;
+  roomTypeCheck: boolean = false;
+
   constructor(
     private windowService: NbWindowService,
     private fb: FormBuilder
@@ -88,8 +94,8 @@ export class CoverageComponent implements OnInit {
     this.waitingPeriod.removeAt(i);
   }
 
-  removeCoverage(i:number){
-    this.coverage.removeAt(i)
+  removeCoverage(i: number) {
+    this.coverage.removeAt(i);
   }
 
   openWindow() {
@@ -107,5 +113,25 @@ export class CoverageComponent implements OnInit {
     });
 
     windowRef.onClose.subscribe((visitor) => (this.icdCode = visitor));
+  }
+
+  togglePlanType(e: boolean) {
+    this.planTypeCheck = e;
+  }
+
+  togglePlanVariant(e: boolean) {
+    this.planVariantCheck = e;
+  }
+
+  toggleSumInsured(e: boolean) {
+    this.sumInsuredCheck = e;
+  }
+
+  toggleApplicability(e: boolean) {
+    this.applicabilityCheck = e;
+  }
+
+  toggleRoomType(e: boolean) {
+    this.roomTypeCheck = e;
   }
 }

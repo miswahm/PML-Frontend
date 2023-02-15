@@ -12,8 +12,6 @@ export class TypesVariantsComponent implements OnInit {
   variantName: FormGroup;
   baseSum: FormGroup;
 
-  variantsName = [];
-
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {

@@ -13,7 +13,7 @@
         orientation="vertical"
         disableStepNavigation="true"
         (stepChange)="handleStepChange($event)"
-        [selectedIndex]="1"
+        [selectedIndex]="3"
       >
         <nb-step label="Product Details">
           <ngx-product-details></ngx-product-details>
@@ -38,7 +38,9 @@
           <button nbButton nbStepperNext>next</button>
         </nb-step>
         <nb-step label="Exclusion">
-          <ngx-exclusions></ngx-exclusions>
+          <span *ngIf="selectedIndex == 4">
+            <ngx-exclusions></ngx-exclusions>
+          </span>
           <button nbButton nbStepperPrevious>prev</button>
           <button nbButton disabled nbStepperNext>next</button>
         </nb-step>

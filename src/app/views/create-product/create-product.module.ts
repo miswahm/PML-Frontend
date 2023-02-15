@@ -5,6 +5,7 @@ import { ThemeModule } from "../../@theme/theme.module";
 import {
   NbButtonModule,
   NbCardModule,
+  NbCheckboxModule,
   NbDatepickerModule,
   NbIconModule,
   NbInputModule,
@@ -68,7 +69,8 @@ const routes: Routes = [
     NbListModule,
     NbSelectModule,
     ReactiveFormsModule,
-    NbIconModule
+    NbIconModule,
+    NbCheckboxModule
   ],
 })
 export class CreateProductModule {}
