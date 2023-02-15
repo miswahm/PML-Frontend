@@ -6,8 +6,12 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./types-variants.component.scss"],
 })
 export class TypesVariantsComponent implements OnInit {
-  selectedItem = "2";
+  selectedItem = [1, 2];
   constructor() {}
 
   ngOnInit(): void {}
+
+  compareById(v1, v2): boolean {
+    return v1 == v2;
+  }
 }
