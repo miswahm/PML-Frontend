@@ -53,7 +53,7 @@
                   (click)="removeCondition(i)"
                   nbButton
                   status="danger"
-                  *ngIf="i !== 0"
+                  *ngIf="conditions.controls.length > 1"
                 >
                   Remove
                 </button>

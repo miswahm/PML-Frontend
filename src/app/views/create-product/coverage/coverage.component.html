@@ -32,7 +32,83 @@
 
 <nb-card>
   <nb-card-header>Limits</nb-card-header>
-  <nb-card-body></nb-card-body>
+  <nb-card-body>
+    <table>
+      <colgroup>
+        <col span="3" />
+        <col span="2" />
+        <col span="2" />
+        <col span="2" />
+      </colgroup>
+      <thead>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <th colspan="2">Silver Plan</th>
+          <th colspan="2">Gold Plan</th>
+          <th colspan="2">Platinum Plan</th>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <th colspan="1">Sum Insured</th>
+          <th colspan="1">Per Person</th>
+          <th colspan="1">Per Policy Period</th>
+          <th colspan="1">Per Person</th>
+          <th colspan="1">Per Policy Period</th>
+          <th colspan="1">Per Person</th>
+          <th colspan="1">Per Policy Period</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th rowspan="3">Individual</th>
+          <th rowspan="6">Delux Romm</th>
+          <td>2 Lakhs</td>
+          <td>Data 2.2</td>
+          <td>Data 2.3</td>
+          <td>Data 2.4</td>
+          <td>Data 2.4</td>
+          <td>Data 2.4</td>
+          <td>Data 2.4</td>
+        </tr>
+
+        <tr>
+          <td>2 Lakhs</td>
+          <td>Data 2.2</td>
+          <td>Data 2.3</td>
+          <td>Data 2.4</td>
+          <td>Data 2.4</td>
+          <td>Data 2.4</td>
+          <td>Data 2.4</td>
+        </tr>
+
+        <tr>
+          <td>2 Lakhs</td>
+          <td>Data 2.2</td>
+          <td>Data 2.3</td>
+          <td>Data 2.4</td>
+          <td>Data 2.4</td>
+          <td>Data 2.4</td>
+          <td>Data 2.4</td>
+        </tr>
+
+        <tr>
+          <th rowspan="3">Floater</th>
+          <td>2 Lakhs</td>
+          <td>Data 2.2</td>
+          <td>Data 2.3</td>
+          <td>Data 2.4</td>
+          <td>Data 2.4</td>
+          <td>Data 2.4</td>
+          <td>Data 2.4</td>
+        </tr>
+      </tbody>
+    </table>
+  </nb-card-body>
 </nb-card>
 
 <nb-card>
@@ -82,7 +158,7 @@
                   (click)="removeWaitingPeriod(i)"
                   nbButton
                   status="danger"
-                  *ngIf="i !== 0"
+                  *ngIf="waitingPeriod.controls.length > 1"
                 >
                   Remove
                 </button>
@@ -146,7 +222,7 @@
                   (click)="removeCoverage(i)"
                   nbButton
                   status="danger"
-                  *ngIf="i !== 0"
+                  *ngIf="coverage.controls.length > 1"
                 >
                   Remove
                 </button>

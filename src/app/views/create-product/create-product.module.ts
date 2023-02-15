@@ -36,6 +36,7 @@ const routes: Routes = [
       { path: "coverage", component: CoverageComponent },
       { path: "exclusion", component: ExclusionsComponent },
       { path: "creation-wizard", component: LayoutCreateProductComponent },
+      {path: "", redirectTo: "creation-wizard", pathMatch: "full"}
     ],
   },
 
