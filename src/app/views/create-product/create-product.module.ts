@@ -24,6 +24,8 @@ import { ExclusionsComponent } from "./exclusions/exclusions.component";
 import { LayoutCreateProductComponent } from "./layout-create-product/layout-create-product.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { IcdCodeModalComponent } from './icd-code-modal/icd-code-modal.component';
+import { CoverageTableComponent } from './coverage-table/coverage-table.component';
+import { ExclusionTableComponent } from './exclusion-table/exclusion-table.component';
 
 //routes
 const routes: Routes = [
@@ -54,6 +56,8 @@ const routes: Routes = [
     ExclusionsComponent,
     LayoutCreateProductComponent,
     IcdCodeModalComponent,
+    CoverageTableComponent,
+    ExclusionTableComponent,
   ],
   imports: [
     CommonModule,
