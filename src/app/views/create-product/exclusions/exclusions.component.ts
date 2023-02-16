@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, FormArray, FormBuilder } from "@angular/forms";
 import { NbWindowControlButtonsConfig, NbWindowService } from "@nebular/theme";
 import { IcdCodeModalComponent } from "../icd-code-modal/icd-code-modal.component";
+import { Router } from "@angular/router";
 @Component({
   selector: "ngx-exclusions",
   templateUrl: "./exclusions.component.html",
@@ -19,12 +20,13 @@ export class ExclusionsComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private windowService: NbWindowService
+    private windowService: NbWindowService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.openWindow();
-    
+
     this.waitingPeriodForm = this.fb.group({
       conditions: this.fb.array([]),
     });
@@ -106,5 +108,11 @@ export class ExclusionsComponent implements OnInit {
     });
 
     windowRef.onClose.subscribe((visitor) => (this.icdCode = visitor));
+  }
+
+  onSubmit() {
+    this.router.navigate(["../create-product/product/creation-wizard"], {
+      queryParams: { tabId: 4 },
+    });
   }
 }

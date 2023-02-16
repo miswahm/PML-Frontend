@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 import { CreateProductComponent } from "./create-product.component";
 import { ThemeModule } from "../../@theme/theme.module";
 import {
+  NbAccordionModule,
   NbButtonModule,
   NbCardModule,
   NbCheckboxModule,
@@ -23,9 +24,9 @@ import { CoverageComponent } from "./coverage/coverage.component";
 import { ExclusionsComponent } from "./exclusions/exclusions.component";
 import { LayoutCreateProductComponent } from "./layout-create-product/layout-create-product.component";
 import { ReactiveFormsModule } from "@angular/forms";
-import { IcdCodeModalComponent } from './icd-code-modal/icd-code-modal.component';
-import { CoverageTableComponent } from './coverage-table/coverage-table.component';
-import { ExclusionTableComponent } from './exclusion-table/exclusion-table.component';
+import { IcdCodeModalComponent } from "./icd-code-modal/icd-code-modal.component";
+import { CoverageTableComponent } from "./coverage-table/coverage-table.component";
+import { ExclusionTableComponent } from "./exclusion-table/exclusion-table.component";
 
 //routes
 const routes: Routes = [
@@ -39,7 +40,7 @@ const routes: Routes = [
       { path: "coverage", component: CoverageComponent },
       { path: "exclusion", component: ExclusionsComponent },
       { path: "creation-wizard", component: LayoutCreateProductComponent },
-      {path: "", redirectTo: "creation-wizard", pathMatch: "full"}
+      { path: "", redirectTo: "creation-wizard", pathMatch: "full" },
     ],
   },
 
@@ -74,7 +75,8 @@ const routes: Routes = [
     NbSelectModule,
     ReactiveFormsModule,
     NbIconModule,
-    NbCheckboxModule
+    NbCheckboxModule,
+    NbAccordionModule,
   ],
 })
 export class CreateProductModule {}

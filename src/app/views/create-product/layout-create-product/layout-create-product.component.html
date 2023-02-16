@@ -5,15 +5,14 @@
     <li class="breadcrumb-item active" aria-current="page">Data</li>
   </ol>
 </nav>
-
 <div class="col-md-12 col-lg-12 col-xxxl-12">
   <nb-card>
     <nb-card-body>
+      <!-- disableStepNavigation="true" -->
       <nb-stepper
         orientation="vertical"
-        disableStepNavigation="true"
         (stepChange)="handleStepChange($event)"
-        [selectedIndex]="0"
+        [selectedIndex]="selectedIndex"
       >
         <nb-step label="Product Details">
           <ngx-product-details></ngx-product-details>
@@ -31,16 +30,12 @@
           <button nbButton nbStepperNext>next</button>
         </nb-step>
         <nb-step label="Coverage">
-          <span *ngIf="selectedIndex == 3">
-            <ngx-coverage></ngx-coverage>
-          </span>
+          <ngx-coverage-table></ngx-coverage-table>
           <button nbButton nbStepperPrevious>prev</button>
           <button nbButton nbStepperNext>next</button>
         </nb-step>
         <nb-step label="Exclusion">
-          <span *ngIf="selectedIndex == 4">
-            <ngx-exclusions></ngx-exclusions>
-          </span>
+          <ngx-exclusion-table></ngx-exclusion-table>
           <button nbButton nbStepperPrevious>prev</button>
           <button nbButton disabled nbStepperNext>next</button>
         </nb-step>

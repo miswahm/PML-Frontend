@@ -3,6 +3,7 @@ import { NbWindowControlButtonsConfig } from "@nebular/theme";
 import { NbWindowService } from "@nebular/theme";
 import { IcdCodeModalComponent } from "../icd-code-modal/icd-code-modal.component";
 import { FormGroup, FormControl, FormArray, FormBuilder } from "@angular/forms";
+import { Router } from "@angular/router";
 @Component({
   selector: "ngx-coverage",
   templateUrl: "./coverage.component.html",
@@ -26,7 +27,8 @@ export class CoverageComponent implements OnInit {
 
   constructor(
     private windowService: NbWindowService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -133,5 +135,11 @@ export class CoverageComponent implements OnInit {
 
   toggleRoomType(e: boolean) {
     this.roomTypeCheck = e;
+  }
+
+  onSubmit() {
+    this.router.navigate(["../create-product/product/creation-wizard"], {
+      queryParams: { tabId: 3 },
+    });
   }
 }

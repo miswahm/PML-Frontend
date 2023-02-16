@@ -45,19 +45,6 @@
                 <div *ngFor="let baseSum of sum.controls; let i = index">
                   <div [formGroupName]="i">
                     <input type="text" nbInput formControlName="title" />
-
-                    <nb-select
-                      placeholder="Select Reason"
-                      formControlName="variantId"
-                      class="mw-50"
-                    >
-                      <nb-option
-                        *ngFor="let name of variantName.value.variants"
-                        [value]="name.id"
-                        >{{ name.name }}</nb-option
-                      >
-                    </nb-select>
-
                     <button
                       (click)="removeSum(i)"
                       nbButton
@@ -84,6 +71,38 @@
           </nb-card-body>
         </nb-card>
       </div>
+    </div>
+
+    <div class="col-12">
+      <nb-card>
+        <nb-card-header>Mapping</nb-card-header>
+        <nb-card-body>
+          <nb-accordion>
+            <nb-accordion-item>
+              <nb-accordion-item-header
+                >Expand to Configure the default
+                mapping</nb-accordion-item-header
+              >
+              <nb-accordion-item-body class="row justify-content-center">
+                <table class="centerd">
+                  <tr>
+                    <td></td>
+                    <th scope="col" *ngFor="let si of baseSum.value.sum">
+                      {{ si.title }}
+                    </th>
+                  </tr>
+                  <tr *ngFor="let item of variantName.value.variants">
+                    <th scope="row">{{ item.name }}</th>
+                    <td *ngFor="let si of baseSum.value.sum">
+                      <nb-checkbox status="basic"></nb-checkbox>
+                    </td>
+                  </tr>
+                </table>
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+          </nb-accordion>
+        </nb-card-body>
+      </nb-card>
     </div>
   </nb-card-body>
 </nb-card>

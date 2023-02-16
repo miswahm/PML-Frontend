@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { NbStepChangeEvent, NbStepperComponent } from "@nebular/theme";
 
 @Component({
@@ -12,9 +13,11 @@ export class LayoutCreateProductComponent implements OnInit {
 
   @ViewChild("stepper") stepper: NbStepperComponent;
 
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.selectedIndex = +this.route.snapshot.queryParamMap.get("tabId");
+  }
 
   handleStepChange(e: NbStepChangeEvent): void {
     this.changeEvent = e;

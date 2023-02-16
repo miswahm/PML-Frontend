@@ -42,14 +42,13 @@ export class TypesVariantsComponent implements OnInit {
   newVariant(body): FormGroup {
     return this.fb.group({
       name: body.name,
-      id: this.variantName.value.variants.length,
     });
   }
 
   newBaseSum(body): FormGroup {
     return this.fb.group({
       title: body.title,
-      variantId: body.variantId,
+      variantName: body.variantName,
     });
   }
 
