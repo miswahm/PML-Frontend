@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, FormArray, FormBuilder } from "@angular/forms";
+import { NbWindowControlButtonsConfig, NbWindowService } from "@nebular/theme";
+import { IcdCodeModalComponent } from "../icd-code-modal/icd-code-modal.component";
 @Component({
   selector: "ngx-exclusions",
   templateUrl: "./exclusions.component.html",
@@ -15,9 +17,14 @@ export class ExclusionsComponent implements OnInit {
   waitingPeriodForm: FormGroup;
   coverageForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private windowService: NbWindowService
+  ) {}
 
   ngOnInit(): void {
+    this.openWindow();
+    
     this.waitingPeriodForm = this.fb.group({
       conditions: this.fb.array([]),
     });
@@ -82,5 +89,22 @@ export class ExclusionsComponent implements OnInit {
 
   removeCoverage(i: number) {
     this.coverage.removeAt(i);
+  }
+
+  openWindow() {
+    const buttonsConfig: NbWindowControlButtonsConfig = {
+      minimize: false,
+      maximize: false,
+      fullScreen: false,
+      close: false,
+    };
+
+    const windowRef = this.windowService.open(IcdCodeModalComponent, {
+      title: `Please Enter ICD CODE`,
+      closeOnBackdropClick: false,
+      buttons: buttonsConfig,
+    });
+
+    windowRef.onClose.subscribe((visitor) => (this.icdCode = visitor));
   }
 }

@@ -1,6 +1,6 @@
 <nb-card>
   <nb-card-header>General Conditions</nb-card-header>
-  <nb-card-body>
+  <nb-card-body class="text-left">
     <form [formGroup]="conditionsForm">
       <div formArrayName="conditions">
         <div *ngFor="let condition of conditions.controls; let i = index">

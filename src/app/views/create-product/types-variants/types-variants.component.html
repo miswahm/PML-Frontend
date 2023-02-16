@@ -5,7 +5,7 @@
       <div class="col-5">
         <nb-card>
           <nb-card-header>Please Add Variant Names</nb-card-header>
-          <nb-card-body>
+          <nb-card-body class="text-left">
             <form [formGroup]="variantName">
               <div formArrayName="variants">
                 <div *ngFor="let variant of variants.controls; let i = index">
@@ -39,7 +39,7 @@
       <div class="col-7">
         <nb-card>
           <nb-card-header>Please add Variants</nb-card-header>
-          <nb-card-body>
+          <nb-card-body class="text-left">
             <form [formGroup]="baseSum">
               <div formArrayName="sum">
                 <div *ngFor="let baseSum of sum.controls; let i = index">
@@ -123,6 +123,26 @@
 
 <nb-card>
   <nb-card-header class="text-center">Room Type</nb-card-header>
+  <nb-card-body>
+    <nb-select
+      multiple
+      placeholder="Select Showcase"
+      [(selected)]="selectedItem"
+      [compareWith]="compareById"
+      class="mw-80"
+    >
+      <nb-option value="">Option empty</nb-option>
+      <nb-option value="0">Option 0</nb-option>
+      <nb-option value="1">Option 1</nb-option>
+      <nb-option value="2">Option 2</nb-option>
+      <nb-option value="3">Option 3</nb-option>
+      <nb-option value="4">Option 4</nb-option>
+    </nb-select>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header class="text-center">Applicability</nb-card-header>
   <nb-card-body>
     <nb-select
       multiple
