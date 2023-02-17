@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormArray, FormBuilder, FormGroup } from "@angular/forms";
+import { FormArray, FormBuilder, FormControl, FormGroup } from "@angular/forms";
 
 @Component({
   selector: "ngx-types-variants",
@@ -7,13 +7,15 @@ import { FormArray, FormBuilder, FormGroup } from "@angular/forms";
   styleUrls: ["./types-variants.component.scss"],
 })
 export class TypesVariantsComponent implements OnInit {
-  selectedItem = [1, 2];
-
   variantName: FormGroup;
   baseSum: FormGroup;
   addonsForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  selectedRoomType = new FormControl();
+
+  constructor(private fb: FormBuilder) {
+    this.selectedRoomType.setValue(["Option 1"]);
+  }
 
   ngOnInit(): void {
     this.variantName = this.fb.group({

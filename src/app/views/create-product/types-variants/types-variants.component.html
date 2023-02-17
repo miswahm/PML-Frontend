@@ -153,31 +153,39 @@
 <nb-card>
   <nb-card-header class="text-center">Variant Type</nb-card-header>
   <nb-card-body>
-    <nb-select multiple placeholder="Select Multiple Variant" class="mw-80">
-      <nb-option value="1">Option 1</nb-option>
-      <nb-option value="2">Option 2</nb-option>
-      <nb-option value="3">Option 3</nb-option>
-      <nb-option value="4">Option 4</nb-option>
-    </nb-select>
+    <div class="row">
+      <div class="col-3"><nb-checkbox>Toggle me</nb-checkbox></div>
+      <div class="col-3"><nb-checkbox>Toggle me</nb-checkbox></div>
+      <div class="col-3"><nb-checkbox>Toggle me</nb-checkbox></div>
+      <div class="col-3"><nb-checkbox>Toggle me</nb-checkbox></div>
+    </div>
   </nb-card-body>
 </nb-card>
 
 <nb-card>
   <nb-card-header class="text-center">Room Type</nb-card-header>
   <nb-card-body>
+    <div class="ml-5">
+      <ul class="tags">
+        <li class="tag" *ngFor="let item of selectedRoomType.value">
+          {{ item }}
+        </li>
+      </ul>
+    </div>
+
     <nb-select
       multiple
       placeholder="Select Showcase"
-      [(selected)]="selectedItem"
       [compareWith]="compareById"
       class="mw-80"
+      [formControl]="selectedRoomType"
     >
       <nb-option value="">Option empty</nb-option>
-      <nb-option value="0">Option 0</nb-option>
-      <nb-option value="1">Option 1</nb-option>
-      <nb-option value="2">Option 2</nb-option>
-      <nb-option value="3">Option 3</nb-option>
-      <nb-option value="4">Option 4</nb-option>
+      <nb-option value="Option 0">Option 0</nb-option>
+      <nb-option value="Option 1">Option 1</nb-option>
+      <nb-option value="Option 2">Option 2</nb-option>
+      <nb-option value="Option 3">Option 3</nb-option>
+      <nb-option value="Option 4">Option 4</nb-option>
     </nb-select>
   </nb-card-body>
 </nb-card>
@@ -185,19 +193,11 @@
 <nb-card>
   <nb-card-header class="text-center">Applicability</nb-card-header>
   <nb-card-body>
-    <nb-select
-      multiple
-      placeholder="Select Showcase"
-      [(selected)]="selectedItem"
-      [compareWith]="compareById"
-      class="mw-80"
-    >
-      <nb-option value="">Option empty</nb-option>
-      <nb-option value="0">Option 0</nb-option>
-      <nb-option value="1">Option 1</nb-option>
-      <nb-option value="2">Option 2</nb-option>
-      <nb-option value="3">Option 3</nb-option>
-      <nb-option value="4">Option 4</nb-option>
-    </nb-select>
+    <div class="row">
+      <div class="col-3"><nb-checkbox>Toggle me</nb-checkbox></div>
+      <div class="col-3"><nb-checkbox>Toggle me</nb-checkbox></div>
+      <div class="col-3"><nb-checkbox>Toggle me</nb-checkbox></div>
+      <div class="col-3"><nb-checkbox>Toggle me</nb-checkbox></div>
+    </div>
   </nb-card-body>
 </nb-card>
