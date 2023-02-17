@@ -113,22 +113,40 @@
 
 <nb-card>
   <nb-card-header class="text-center">Addons</nb-card-header>
-  <nb-card-body>
-    <div class="row">
-      <div class="col-4">
-        <nb-card>
-          <nb-card-header>Personal</nb-card-header>
-          <nb-card-body>
-            <nb-list>
-              <nb-list-item>Personal Accident cover</nb-list-item>
-              <nb-list-item>OPD Cover</nb-list-item>
-              <nb-list-item>NCB Super</nb-list-item>
-              <nb-list-item>Hospitalization</nb-list-item>
-            </nb-list>
-          </nb-card-body>
-        </nb-card>
+  <nb-card-body class="text-left">
+    <form [formGroup]="addonsForm">
+      <div formArrayName="addons">
+        <div *ngFor="let addon of addons.controls; let i = index">
+          <div [formGroupName]="i">
+            <input
+              type="text"
+              nbInput
+              formControlName="name"
+              style="min-width: 75%"
+            />
+            <button
+              (click)="removeAddOn(i)"
+              nbButton
+              status="danger"
+              *ngIf="addons.controls.length > 1"
+              class="ml-3"
+            >
+              Remove
+            </button>
+            <button
+              type="button"
+              (click)="addAddon()"
+              nbButton
+              status="primary"
+              *ngIf="i + 1 == addons.controls.length"
+              class="ml-3"
+            >
+              Add
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    </form>
   </nb-card-body>
 </nb-card>
 

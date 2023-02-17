@@ -11,6 +11,7 @@ export class TypesVariantsComponent implements OnInit {
 
   variantName: FormGroup;
   baseSum: FormGroup;
+  addonsForm: FormGroup;
 
   constructor(private fb: FormBuilder) {}
 
@@ -23,8 +24,13 @@ export class TypesVariantsComponent implements OnInit {
       sum: this.fb.array([]),
     });
 
+    this.addonsForm = this.fb.group({
+      addons: this.fb.array([]),
+    });
+
     this.addVariantName();
     this.addBaseSum();
+    this.addAddon();
   }
 
   compareById(v1, v2): boolean {
@@ -37,6 +43,10 @@ export class TypesVariantsComponent implements OnInit {
 
   get sum(): FormArray {
     return this.baseSum.get("sum") as FormArray;
+  }
+
+  get addons(): FormArray {
+    return this.addonsForm.get("addons") as FormArray;
   }
 
   newVariant(body): FormGroup {
@@ -52,6 +62,12 @@ export class TypesVariantsComponent implements OnInit {
     });
   }
 
+  newAddOn(name): FormGroup {
+    return this.fb.group({
+      name: name,
+    });
+  }
+
   addVariantName() {
     this.variants.push(this.newVariant({ name: "" }));
   }
@@ -60,11 +76,19 @@ export class TypesVariantsComponent implements OnInit {
     this.sum.push(this.newBaseSum({ title: null, variantId: null }));
   }
 
+  addAddon() {
+    this.addons.push(this.newAddOn(null));
+  }
+
   removeVariant(i: number) {
     this.variants.removeAt(i);
   }
 
   removeSum(i: number) {
     this.sum.removeAt(i);
+  }
+
+  removeAddOn(i: number) {
+    this.addons.removeAt(i);
   }
 }
