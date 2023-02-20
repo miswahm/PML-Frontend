@@ -23,7 +23,7 @@ import { GeneralConditionsComponent } from "./general-conditions/general-conditi
 import { CoverageComponent } from "./coverage/coverage.component";
 import { ExclusionsComponent } from "./exclusions/exclusions.component";
 import { LayoutCreateProductComponent } from "./layout-create-product/layout-create-product.component";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { IcdCodeModalComponent } from "./icd-code-modal/icd-code-modal.component";
 import { CoverageTableComponent } from "./coverage-table/coverage-table.component";
 import { ExclusionTableComponent } from "./exclusion-table/exclusion-table.component";
@@ -77,6 +77,7 @@ const routes: Routes = [
     NbIconModule,
     NbCheckboxModule,
     NbAccordionModule,
+    FormsModule,
   ],
 })
 export class CreateProductModule {}

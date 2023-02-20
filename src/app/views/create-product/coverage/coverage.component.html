@@ -39,26 +39,58 @@
       <nb-checkbox
         (checkedChange)="togglePlanType($event)"
         [(ngModel)]="planTypeCheck"
+        [disabled]="
+          roomTypeCheck &&
+          planVariantCheck &&
+          sumInsuredCheck &&
+          applicabilityCheck
+        "
+        (click)="showToast('type', planTypeCheck)"
         >Plan Type</nb-checkbox
       >
       <nb-checkbox
         (checkedChange)="togglePlanVariant($event)"
         [(ngModel)]="planVariantCheck"
+        [disabled]="
+          planTypeCheck &&
+          roomTypeCheck &&
+          sumInsuredCheck &&
+          applicabilityCheck
+        "
+        (click)="showToast('variant', planVariantCheck)"
         >Plan Variant</nb-checkbox
       >
       <nb-checkbox
         (checkedChange)="toggleSumInsured($event)"
         [(ngModel)]="sumInsuredCheck"
+        [disabled]="
+          planTypeCheck &&
+          planVariantCheck &&
+          roomTypeCheck &&
+          applicabilityCheck
+        "
+        (click)="showToast('sum', sumInsuredCheck)"
         >Sum Insured</nb-checkbox
       >
       <nb-checkbox
         (checkedChange)="toggleApplicability($event)"
         [(ngModel)]="applicabilityCheck"
+        [disabled]="
+          planTypeCheck && planVariantCheck && sumInsuredCheck && roomTypeCheck
+        "
+        (click)="showToast('applicability', applicabilityCheck)"
         >Applicability</nb-checkbox
       >
       <nb-checkbox
         (checkedChange)="toggleRoomType($event)"
         [(ngModel)]="roomTypeCheck"
+        [disabled]="
+          planTypeCheck &&
+          planVariantCheck &&
+          sumInsuredCheck &&
+          applicabilityCheck
+        "
+        (click)="showToast('room', roomTypeCheck)"
         >Room Type</nb-checkbox
       >
     </div>
@@ -79,8 +111,8 @@
       </colgroup>
       <thead>
         <tr *ngIf="planVariantCheck">
-          <td></td>
-          <td></td>
+          <td *ngIf="planTypeCheck"></td>
+          <td *ngIf="roomTypeCheck"></td>
           <td *ngIf="sumInsuredCheck"></td>
           <th
             [attr.colspan]="applicability.length"
@@ -91,10 +123,10 @@
         </tr>
 
         <tr *ngIf="sumInsuredCheck || applicabilityCheck">
-          <td></td>
-          <td></td>
+          <td *ngIf="planTypeCheck"></td>
+          <td *ngIf="roomTypeCheck"></td>
           <th colspan="1" *ngIf="sumInsuredCheck">Sum Insured</th>
-          <ng-container *ngIf="applicabilityCheck && planVariantCheck">
+          <ng-container *ngIf="applicabilityCheck">
             <ng-container *ngFor="let variant of planVariant">
               <th colspan="1" *ngFor="let item of applicability">{{ item }}</th>
             </ng-container>
@@ -108,9 +140,9 @@
             {{ planType[0] }}
           </th>
           <th rowspan="6" *ngIf="roomTypeCheck">{{ roomType[0] }}</th>
-          <td *ngIf="sumInsuredCheck">
-            <input type="text" class="table-input" />
-          </td>
+          <th *ngIf="sumInsuredCheck">
+            {{ sumInsuredIndi[0] }}
+          </th>
           <ng-container *ngFor="let variant of planVariant">
             <td *ngFor="let item of applicability">
               <input type="text" class="table-input" />
@@ -118,10 +150,12 @@
           </ng-container>
         </tr>
 
-        <tr *ngFor="let item of sumInsuredIndi">
-          <td *ngIf="sumInsuredCheck">
-            <input type="text" class="table-input" />
-          </td>
+        <tr *ngFor="let item of sumInsuredIndi; let i = index">
+          <th *ngIf="sumInsuredCheck">
+            <span *ngIf="i < sumInsuredIndi.length">{{
+              sumInsuredIndi[i]
+            }}</span>
+          </th>
           <ng-container *ngFor="let variant of planVariant">
             <td *ngFor="let item of applicability">
               <input type="text" class="table-input" />
@@ -134,9 +168,22 @@
             {{ planType[1] }}
           </th>
           <!-- <th rowspan="6" *ngIf="roomTypeCheck">{{ roomType[0] }}</th> -->
-          <td *ngIf="sumInsuredCheck">
-            <input type="text" class="table-input" />
-          </td>
+          <th *ngIf="sumInsuredCheck">
+            {{ sumInsuredFloa[0] }}
+          </th>
+          <ng-container *ngFor="let variant of planVariant">
+            <td *ngFor="let item of applicability">
+              <input type="text" class="table-input" />
+            </td>
+          </ng-container>
+        </tr>
+
+        <tr *ngFor="let item of sumInsuredFloa; let i = index">
+          <th *ngIf="sumInsuredCheck">
+            <span *ngIf="i < sumInsuredFloa.length">{{
+              sumInsuredFloa[i]
+            }}</span>
+          </th>
           <ng-container *ngFor="let variant of planVariant">
             <td *ngFor="let item of applicability">
               <input type="text" class="table-input" />
