@@ -4,6 +4,7 @@ import { NbWindowService } from "@nebular/theme";
 import { IcdCodeModalComponent } from "../icd-code-modal/icd-code-modal.component";
 import { FormGroup, FormControl, FormArray, FormBuilder } from "@angular/forms";
 import { Router } from "@angular/router";
+
 @Component({
   selector: "ngx-coverage",
   templateUrl: "./coverage.component.html",
@@ -19,11 +20,21 @@ export class CoverageComponent implements OnInit {
   waitingPeriodForm: FormGroup;
   coverageForm: FormGroup;
 
-  planTypeCheck: boolean = false;
-  planVariantCheck: boolean = false;
-  sumInsuredCheck: boolean = false;
-  applicabilityCheck: boolean = false;
-  roomTypeCheck: boolean = false;
+  planTypeCheck: boolean = true;
+  planVariantCheck: boolean = true;
+  sumInsuredCheck: boolean = true;
+  applicabilityCheck: boolean = true;
+  roomTypeCheck: boolean = true;
+
+  planType = ["Individual", "Floater"];
+  planVariant = ["Silver Plan", "Gold Plan", "Diamond Plan"];
+  applicability = ["Per Person", "Pre Policy Plan"];
+  tempapplicability = this.applicability;
+  roomType = ["Deluxe Room", "XL Room"];
+  sumInsuredIndi = ["2 Lakhs", "5 Lakhs", "10 Lakhs"];
+
+  sumInsuredFloa = ["5 Lakhs", "10 Lakhs", "15 Lakhs"];
+
 
   constructor(
     private windowService: NbWindowService,
@@ -44,6 +55,9 @@ export class CoverageComponent implements OnInit {
 
     this.addWaitingPeriod();
     this.addCoverage();
+
+    this.sumInsuredIndi.shift();
+    this.sumInsuredFloa.shift();
   }
 
   get waitingPeriod(): FormArray {
@@ -131,6 +145,12 @@ export class CoverageComponent implements OnInit {
 
   toggleApplicability(e: boolean) {
     this.applicabilityCheck = e;
+
+    if (!this.applicabilityCheck) {
+      this.applicability = [""];
+    } else {
+      this.applicability = this.tempapplicability;
+    }
   }
 
   toggleRoomType(e: boolean) {
